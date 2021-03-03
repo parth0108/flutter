@@ -5,6 +5,7 @@ import 'package:widget/widget/expanded.dart';
 import 'package:widget/widget/fadeimage.dart';
 import 'package:widget/widget/fadetransition.dart';
 import 'package:widget/widget/futurebuilder.dart';
+import 'package:widget/widget/inheritedmodel/inheritedmodel.dart';
 import 'package:widget/widget/pageview.dart';
 import 'package:widget/widget/safearea.dart';
 import 'package:widget/widget/silverlistgride.dart';
@@ -32,7 +33,8 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         backgroundColor: Color(0xff84FFFF),
-        body: PageViewDemo()
+        body:ViewController()
+        //PageViewDemo()
         //Top10Widget()//FutureBulider()
         //ExpandedWidget(),
         //WidgetSafeArea(),
