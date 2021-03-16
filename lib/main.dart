@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:widget/widget/animatedContainer.dart';
-import 'package:widget/widget/animation/top10widget.dart';
-import 'package:widget/widget/expanded.dart';
-import 'package:widget/widget/fadeimage.dart';
-import 'package:widget/widget/fadetransition.dart';
-import 'package:widget/widget/futurebuilder.dart';
+import 'package:widget/statemanagment/main2.dart';
 import 'package:widget/widget/inheritedmodel/inheritedmodel.dart';
-import 'package:widget/widget/pageview.dart';
-import 'package:widget/widget/safearea.dart';
-import 'package:widget/widget/silverlistgride.dart';
-import 'package:widget/widget/sliverappbar.dart';
-import 'package:widget/widget/streambulider.dart';
-import 'package:widget/widget/tabel.dart';
+import 'package:widget/widget/product.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -21,6 +12,7 @@ class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
+
 
 class _MyAppState extends State<MyApp> {
   @override
@@ -33,9 +25,10 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         backgroundColor: Color(0xff84FFFF),
-        body:ViewController()
+        body:MyApp1()
         //PageViewDemo()
-        //Top10Widget()//FutureBulider()
+        //Top10Widget()
+        // FutureBulider()
         //ExpandedWidget(),
         //WidgetSafeArea(),
       )/*MyStatefulWidget(),*/
