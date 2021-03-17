@@ -3,6 +3,9 @@ import 'package:widget/statemanagment/main2.dart';
 import 'package:widget/widget/inheritedmodel/inheritedmodel.dart';
 import 'package:widget/widget/product.dart';
 
+import 'shareprefernce/loginpage.dart';
+import 'widget/imagePicker.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -25,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         backgroundColor: Color(0xff84FFFF),
-        body:MyApp1()
+        body:ImagePick()
         //PageViewDemo()
         //Top10Widget()
         // here you can whatever  Example
