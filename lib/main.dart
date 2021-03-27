@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:widget/statemanagment/main2.dart';
-import 'package:widget/widget/inheritedmodel/inheritedmodel.dart';
-import 'package:widget/widget/product.dart';
+import 'package:widget/widget/imagepickandcrop/imagePicker.dart';
+import 'package:widget/widget/test.dart';
 
-import 'shareprefernce/loginpage.dart';
-import 'widget/imagePicker.dart';
+import 'provider/providerexample.dart';
+import 'widget/imagepickandcrop/imagepickandcropprofile.dart';
 
 
 void main() {
@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         backgroundColor: Color(0xff84FFFF),
-        body:ImagePick()
+        body:BooksApp()
         //PageViewDemo()
         //Top10Widget()
         // here you can whatever  Example

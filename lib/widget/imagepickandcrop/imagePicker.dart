@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -24,7 +23,7 @@ class _ImagePickState extends State<ImagePick> {
           Center(
             child: GestureDetector(
               onTap: () {
-               _showPicker(context);
+                _showPicker(context);
               },
               child: CircleAvatar(
                 radius: 55,
@@ -113,7 +112,3 @@ class _ImagePickState extends State<ImagePick> {
     }
   }
 }
-
-
-
-
