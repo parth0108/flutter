@@ -39,6 +39,8 @@ dev_dependencies:
   image_picker: ^0.6.5+3
   image_cropper: ^1.2.2
   extended_nested_scroll_view: ^3.0.0
+  expansion_tile_card: ^2.0.0
+  foldable_sidebar: ^1.0.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

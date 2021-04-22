@@ -54,7 +54,12 @@ class _MatchFragmentState extends State<MatchFragment>  with TickerProviderState
                   SliverAppBar(
                       pinned: true,
                       expandedHeight: 200,
+                      actions: [
+
+                        Icon(Icons.add)
+                      ],
                       title: Text('Title'),
+
                       flexibleSpace: FlexibleSpaceBar(
                           background: Image.network(
                             "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
