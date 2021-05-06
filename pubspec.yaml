@@ -41,6 +41,11 @@ dev_dependencies:
   extended_nested_scroll_view: ^3.0.0
   expansion_tile_card: ^2.0.0
   foldable_sidebar: ^1.0.0
+  pinch_zoom_image_updated: ^0.2.6
+  cached_network_image: ^3.0.0
+  bloc: ^7.0.0
+  flutter_bloc: ^7.0.0
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
