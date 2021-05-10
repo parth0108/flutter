@@ -45,6 +45,9 @@ dev_dependencies:
   cached_network_image: ^3.0.0
   bloc: ^7.0.0
   flutter_bloc: ^7.0.0
+  video_player: ^2.1.1
+  chewie: ^1.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -57,6 +60,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    - assets/
     - assets/images/
 
   # To add assets to your application, add an assets section, like this:

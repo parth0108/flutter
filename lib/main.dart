@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:widget/widget/expanstiontiels.dart';
-import 'package:widget/widget/pinchzoom.dart';
-import 'package:widget/widget/silveraappbarwithtab.dart';
-import 'package:widget/statemanagment/main2.dart';
-import 'package:widget/widget/imagepickandcrop/imagePicker.dart';
-import 'package:widget/widget/test.dart';
-
-import 'provider/providerexample.dart';
+import 'package:widget/video_player/splashscreen.dart';
+import 'video_player/videoplayer.dart';
 import 'widget/BlockPattern /counter.dart';
-import 'widget/foldable_sidebar.dart';
-import 'widget/imagepickandcrop/imagepickandcropprofile.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -31,7 +22,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           primarySwatch: Colors.deepOrange
       ),
-      home:CounterBlock()/*MyStatefulWidget(),*/
+      home:Splash()/*MyStatefulWidget(),*/
 
 
     );
