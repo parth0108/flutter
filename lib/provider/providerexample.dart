@@ -1,132 +1,142 @@
 import 'package:flutter/material.dart';
 
+class DemoData extends StatefulWidget {
+  DemoData({Key key, this.title}) : super(key: key);
 
-class Book {
   final String title;
-  final String author;
-
-  Book(this.title, this.author);
-}
-
-class BooksApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _BooksAppState();
-}
-
-class _BooksAppState extends State<BooksApp> {
-  Book _selectedBook;
-
-  List<Book> books = [
-    Book('Stranger in a Strange Land', 'Robert A. Heinlein'),
-    Book('Foundation', 'Isaac Asimov'),
-    Book('Fahrenheit 451', 'Ray Bradbury'),
-  ];
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Books App',
-      home: Navigator(
-        pages: [
-          MaterialPage(
-            key: ValueKey('BooksListPage'),
-            child: BooksListScreen(
-              books: books,
-              onTapped: _handleBookTapped,
-            ),
-          ),
-          if (_selectedBook != null) BookDetailsPage(book: _selectedBook)
-        ],
-        onPopPage: (route, result) {
-          if (!route.didPop(result)) {
-            return false;
-          }
-
-          // Update the list of pages by setting _selectedBook to null
-          setState(() {
-            _selectedBook = null;
-          });
-
-          return true;
-        },
-      ),
-    );
-  }
-
-  void _handleBookTapped(Book book) {
-    setState(() {
-      _selectedBook = book;
-    });
-  }
+  _DemoDataState createState() => _DemoDataState();
 }
 
-class BookDetailsPage extends Page {
-  final Book book;
+class _DemoDataState extends State<DemoData> {
+  List<Animal> animals = new List();
+  String newName;
+  TextEditingController nctrl = TextEditingController();
 
-  BookDetailsPage({
-    this.book,
-  }) : super(key: ValueKey(book));
+  @override
+  void initState() {
+    super.initState();
+    animals = [
+      Animal(id: 1, name: 'cat'),
+      Animal(id: 2, name: 'dog'),
+      Animal(id: 3, name: 'mouse'),
+      Animal(id: 4, name: 'horse'),
+      Animal(id: 5, name: 'frog'),
+    ];
+  }
 
-  Route createRoute(BuildContext context) {
-    return MaterialPageRoute(
-      settings: this,
+  _changePetName() {
+    newName = nctrl.text;
+    Navigator.pop(context, newName);
+    return newName;
+  }
+
+  Future<String> _showDialog(String name) async {
+    nctrl.text = name;
+    return await showDialog<String>(
+      context: context,
       builder: (BuildContext context) {
-        return BookDetailsScreen(book: book);
+        // return object of type Dialog
+        return AlertDialog(
+          elevation: 5,
+          backgroundColor: Colors.blue,
+          title: Text(
+            "Rename this pet",
+          ),
+          content: Container(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  TextField(
+                    controller: nctrl,
+                    onChanged: (e) {
+                      // setState(() {});
+                    },
+                  ),
+                ],
+              )),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            FlatButton(
+              child: Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop(nctrl.text);
+              },
+            ),
+            FlatButton(
+              color: Colors.green,
+              child: Text(
+                "Submit",
+              ),
+              onPressed: () {
+                var updateName = _changePetName();
+                return updateName;
+              },
+            ),
+          ],
+        );
       },
     );
   }
-}
-
-class BooksListScreen extends StatelessWidget {
-  final List<Book> books;
-  final ValueChanged<Book> onTapped;
-
-  BooksListScreen({
-    @required this.books,
-    @required this.onTapped,
-  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: ListView(
-        children: [
-          for (var book in books)
-            ListTile(
-              title: Text(book.title),
-              subtitle: Text(book.author),
-              onTap: () => onTapped(book),
-            )
-        ],
+      appBar: AppBar(
+        title: Text(widget.title),
       ),
-    );
-  }
-}
-
-class BookDetailsScreen extends StatelessWidget {
-  final Book book;
-
-  BookDetailsScreen({
-    @required this.book,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (book != null) ...[
-              Text(book.title, style: Theme.of(context).textTheme.headline6),
-              Text(book.author, style: Theme.of(context).textTheme.subtitle1),
-            ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ListView.builder(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: animals.length,
+              itemBuilder: (BuildContext context, int index) {
+                var pet = animals[index];
+                return ListTile(
+                  key: ValueKey(pet.id),
+                  enabled: true,
+                  onTap: () async {
+                    var rename = await _showDialog(pet.name);
+                    if (rename != null) {
+                      pet.name = rename;
+                      setState(() {});
+                    }
+                    // setState(() {
+                    //   pet.name = 'bob';
+                    // });
+                  },
+                  title: Text(pet.name),
+                );
+              },
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class Animal {
+  final int id;
+  String name;
+
+  Animal({this.id, this.name});
+
+  factory Animal.fromJson(Map<dynamic, dynamic> json) {
+    return new Animal(
+      id: json['id'],
+      name: json['name'],
+    );
+  }
+
+  Map<dynamic, dynamic> toJson() {
+    final Map<dynamic, dynamic> data = new Map<dynamic, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    return data;
   }
 }

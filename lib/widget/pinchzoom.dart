@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pinch_zoom_image_updated/pinch_zoom_image_updated.dart';
 
-void main() => runApp(new PinchZoom());
+
 
 class PinchZoom extends StatelessWidget {
   @override
