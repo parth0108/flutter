@@ -5,12 +5,16 @@ import 'package:widget/adaptiveui/fractional.dart';
 import 'package:widget/adaptiveui/layoutbuilder.dart';
 import 'package:widget/adaptiveui/mediaquery.dart';
 import 'package:widget/adaptiveui/oriantationbuilder.dart';
+import 'package:widget/firebase/Firebase_example.dart';
 import 'package:widget/menuiteam.dart';
 import 'package:widget/horizontalLIstView.dart';
+import 'package:widget/radio_button_list.dart';
 import 'package:widget/theamChange/theamChange.dart';
 import 'package:widget/video_player/splashscreen.dart';
 import 'bottomnavigation/mainfile.dart';
+import 'game /game_practicle.dart';
 import 'google map/googlemap.dart';
+import 'instaDemo.dart';
 import 'video_player/videoplayer.dart';
 import 'widget/BlockPattern /counter.dart';
 
@@ -39,8 +43,8 @@ class _MyAppState extends State<MyApp> {
       // home:MediaQueryExample()/*MyStatefulWidget(),*/
      //home:FittedBoxPage()/*MyStatefulWidget(),*/
       //home:MyHomePage()/*MyStatefulWidget(),*/
-      home:MyStatefulApp()/*MyStatefulWidget(),*/
-     // home:FractionalExample()/*MyStatefulWidget(),*/
+      //home:FireBaseExmple()/*MyStatefulWidget(),*/
+     home:Tic_Tac_Toe_Practicle()/*MyStatefulWidget(),*/
 
 
     );

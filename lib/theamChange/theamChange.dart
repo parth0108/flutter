@@ -49,19 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   void _incrementCounter() {
-
-
-    // alternate light / dark themes with each FAB press, for illustration
     ThemeData _theme =status ? ThemeData.dark() : ThemeData();
-
-    /// Find the State object and change the theme, can be done anywhere with
-    /// a context
     MyStatefulApp.of(context).changeTheme(theme: _theme);
 
-    // we're rebuilding with changeTheme, so don't duplicate setState call
-    /*setState(() {
-      _counter++;
-    });*/
   }
 
   @override
@@ -83,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children:[
             Text(
               'You switched themes this many times, happy yet?:',
             ),
@@ -98,3 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+

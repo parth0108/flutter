@@ -56,6 +56,9 @@ dev_dependencies:
   image_picker: ^0.8.2
   get: ^4.1.4
   flutter_switch: ^0.3.2
+  firebase_core: ^1.0.3
+  firebase_database: ^6.1.2
+
 
 
 # image_picker: ^0.6.5+3
