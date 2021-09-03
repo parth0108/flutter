@@ -58,6 +58,8 @@ dev_dependencies:
   flutter_switch: ^0.3.2
   firebase_core: ^1.0.3
   firebase_database: ^6.1.2
+  country_code_picker: ^1.7.0
+  localization: ^0.1.0
 
 
 
